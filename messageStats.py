@@ -5,7 +5,8 @@ import json
 import re
 
 # Initilization
-path = r"C:\Users\keith\Downloads\package\messages"
+path = r"CHANGE THIS TO WHEREVER YOU HAVE \package\messages"
+#e.g "C:\Users\Chubs\Downloads\package\messages"
 entries = os.listdir(path)
 entries.remove("index.json")
 dirs = []
