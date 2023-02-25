@@ -121,4 +121,4 @@ while(userDisplay != 0):
     userDisplay = userDisplay-1
     k = k+1
 
-print("Your total messages are: "+str(row_count))
+print("Your total messages are: "+str(commas(row_count)))
