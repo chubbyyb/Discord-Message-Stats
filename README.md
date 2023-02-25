@@ -1,6 +1,6 @@
 # Discord-Stats
 
-This program uses discords package data <p style="color:gray">(settings -> privacy & safety -> request all my data)</p> to count how many messages you have sent in total, and will rank who you sent the most messages to.
+This program uses discords package data <p style="color:red">(settings -> privacy & safety -> request all my data)</p> to count how many messages you have sent in total, and will rank who you sent the most messages to.
 
 ![Alt Text](example.png)
 
