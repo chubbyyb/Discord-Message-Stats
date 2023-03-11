@@ -1,13 +1,14 @@
-# last updated: 02/25/2023
+# last updated: 03/11/2023
 
 import os
 import time
 import csv
 import json
 import re
+import graphMessages
 
 # Initilization
-path = r"CHANGE THIS TO WHEREVER YOU HAVE \package\messages"
+path = r"Enter your path"
 #e.g "C:\Users\Chubs\Downloads\package\messages"
 entries = os.listdir(path)
 entries.remove("index.json")
@@ -21,6 +22,7 @@ found = 0
 notFound = 0
 row_count = 0
 messages = [[],[],[]]
+displayGraph = False
 
 
 # Loading bar
@@ -37,6 +39,9 @@ def loadbar(iteration, total, prefix='',suffix='',decimals=1,length=100,fill='>'
 def commas(number):
     return ("{:,}".format(number))
 
+
+
+#  x[0][1] > x[0][2] should also change x[1][1] > x[1][2] and so on
 def sort_3d_array(array):
     # create a list of tuples that contain the corresponding elements from all three subarrays
     tuples_list = list(zip(array[0], array[1], array[2]))
@@ -50,10 +55,15 @@ def sort_3d_array(array):
     ]
     return sorted_array
 
+
 # Incase user wants to change path
 if(input("The current path is: "+path+"\nDo you want to change the path? (Y/N): ").lower() == "y"):
     path = input("Enter your path: ")
     print("The new path is: "+path)
+
+if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+    displayGraph = True
+
 
 
 # Get all the message file paths
@@ -124,3 +134,7 @@ while(userDisplay != 0):
     k = k+1
 
 print("Your total messages are: "+str(commas(row_count)))
+
+if displayGraph == True:
+    print("Graphing your messages...")
+    graphMessages.graph()
