@@ -4,7 +4,7 @@ This program uses discords package data
 *(settings -> privacy & safety -> request all my data)*
  to count how many messages you have sent in total, and will rank who you sent the most messages to.
 
-Please be careful with your data package. It includes all the messages sent on discord
+Please be careful with your data package. It includes all the messages sent on discord; Do not send it to anyone
 
 ![Alt Text](example.png)
 ![Alt Text](GraphExample.png)
