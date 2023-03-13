@@ -7,35 +7,35 @@ def graph():
 
     # list all csv files only
     # Enter your path how the example is displayed (2 backslashes)
-    csv_files = glob.glob('C:\\Users\\chubs\\Documents\\messageStats\\package\\messages\\*\\*.{}'.format('csv'))
+    csv_files = glob.glob('package\\messages\\*\\*.{}'.format('csv'))
     #print(csv_files)
 
     df_csv_concat = pd.concat([pd.read_csv(file) for file in csv_files ], ignore_index=True)
     #print(df_csv_concat)
 
-    df_csv_concat.to_csv('concatenated_data.csv', index=False)
+    df_csv_concat.to_csv(r'data\concatenated_data.csv', index=False)
 
     # Clean the data and put it in new.csv
-    df = pd.read_csv('concatenated_data.csv') 
+    df = pd.read_csv(r'data\concatenated_data.csv') 
     df['Timestamp'] = df['Timestamp'].astype('str').str.slice(0,10) 
-    df.to_csv(path_or_buf='new.csv') 
+    df.to_csv(path_or_buf=r'data\new.csv') 
 
     # Put the dates in dates.csv
-    df = pd.read_csv('new.csv') # Read the clean CSV file
+    df = pd.read_csv(r'data\new.csv') # Read the clean CSV file
     df['Timestamp'] = pd.to_datetime(df['Timestamp'], format='%Y-%m-%d')
-    df['Timestamp'].to_csv(path_or_buf='dates.csv',index_label='Messages') 
+    df['Timestamp'].to_csv(path_or_buf=r'data\dates.csv',index_label='Messages') 
 
     # Equivelant of ctrl-fing a date and getting results count
-    df = pd.read_csv('dates.csv')
+    df = pd.read_csv(r'data\dates.csv')
     df1 = df.groupby('Timestamp').count().copy() 
     #print(df.groupby('Timestamp').count().to_string())
     #print(df.mean(numeric_only=True,skipna = True))
-    df1.to_csv("df1.csv", sep=",")
+    df1.to_csv(r"data\df1.csv", sep=",")
 
 
-    df = pd.read_csv('df1.csv')
+    df = pd.read_csv(r'data\df1.csv')
     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
-    df1 = pd.read_csv('df1.csv')
+    df1 = pd.read_csv(r'data\df1.csv')
     df1['Timestamp'] = pd.to_datetime(df1['Timestamp'])
 
 
@@ -59,7 +59,7 @@ def graph():
     df = pd.concat([df, new_df]).sort_values("Timestamp")
 
     # Write new DataFrame to CSV
-    df.to_csv("df1.csv", index=False)
+    df.to_csv(r"data\df1.csv", index=False)
 
     # END OF THIS BULLSHIT THAT TOOK ME 8 HOURS ----------------------------------------------------------
 
