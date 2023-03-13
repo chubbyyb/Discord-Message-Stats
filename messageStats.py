@@ -1,4 +1,4 @@
-# last updated: 03/11/2023
+# last updated: 03/13/2023
 
 import os
 import time
@@ -6,10 +6,10 @@ import csv
 import json
 import re
 import graphMessages
+import commonWords
 
 # Initilization
-path = r"Enter your path"
-#e.g "C:\Users\Chubs\Downloads\package\messages"
+path = r"package\messages"
 entries = os.listdir(path)
 entries.remove("index.json")
 dirs = []
@@ -23,6 +23,7 @@ notFound = 0
 row_count = 0
 messages = [[],[],[]]
 displayGraph = False
+displayCommonWords = False
 
 
 # Loading bar
@@ -63,6 +64,10 @@ if(input("The current path is: "+path+"\nDo you want to change the path? (Y/N): 
 
 if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
     displayGraph = True
+    if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+        displayCommonWords = True
+
+
 
 
 
@@ -135,6 +140,11 @@ while(userDisplay != 0):
 
 print("Your total messages are: "+str(commas(row_count)))
 
+
 if displayGraph == True:
     print("Graphing your messages...")
     graphMessages.graph()
+
+if displayCommonWords == True:
+    print("Getting most common words...")
+    commonWords.wordStats()
