@@ -64,7 +64,7 @@ if(input("The current path is: "+path+"\nDo you want to change the path? (Y/N): 
 
 if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
     displayGraph = True
-    if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+    if(input("Would you like to count your top used words? (Y/N) [EXPERIMENTAL]").lower() == "y"):
         displayCommonWords = True
 
 
