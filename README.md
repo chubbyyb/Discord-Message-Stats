@@ -6,8 +6,8 @@ This program uses discords package data
 
 Please be careful with your data package. It includes all the messages sent on discord; Do not send it to anyone
 
-![Alt Text](example.png)
-![Alt Text](GraphExample.png)
+![Alt Text](examples/example.png)
+![Alt Text](examples/GraphExample.png)
 
 
 Special thanks to:
