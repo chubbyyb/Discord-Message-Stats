@@ -5,11 +5,14 @@ import time
 import csv
 import json
 import re
+import pickle
 import graphMessages
 import commonWords
+import displayStats
 
 # Initilization
 path = r"package\messages"
+#e.g "C:\Users\Chubs\Downloads\package\messages"
 entries = os.listdir(path)
 entries.remove("index.json")
 dirs = []
@@ -24,6 +27,7 @@ row_count = 0
 messages = [[],[],[]]
 displayGraph = False
 displayCommonWords = False
+displayS = False
 
 
 # Loading bar
@@ -62,9 +66,14 @@ if(input("The current path is: "+path+"\nDo you want to change the path? (Y/N): 
     path = input("Enter your path: ")
     print("The new path is: "+path)
 
-if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+if(input("Would you like to graph everything [Top words, Top users, Messages overtime]? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+    displayS = True
     displayGraph = True
-    if(input("Would you like to count your top used words? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+    displayCommonWords = True
+else:
+    if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
+        displayGraph = True
+    if(input("Would you like to graph your overall messages? (Y/N) [EXPERIMENTAL]").lower() == "y"):
         displayCommonWords = True
 
 
@@ -126,6 +135,11 @@ while j != length:
         messages[2].append('null')
 
 messagesSorted = sort_3d_array(messages)
+
+with open(r'data\topUsers.pickle', 'wb') as f:
+    pickle.dump(messagesSorted, f)
+
+
 userDisplay = int(input("\n\nHow many would you like to display? "))
 print("Top messages:\n")
 
@@ -148,3 +162,9 @@ if displayGraph == True:
 if displayCommonWords == True:
     print("Getting most common words...")
     commonWords.wordStats()
+
+if displayS==True:
+    print("Graphing your messages...")
+    displayStats.displayStats()
+
+
