@@ -8,8 +8,8 @@ import json
 def displayStats():
     df = pd.read_csv(r'data\df1.csv')
     topUsers = pd.read_pickle(r'data\topUsers.pickle')
-    x_values = topUsers[0][-11:-1]
-    y_values = topUsers[2][-10:-1]
+    x_values = topUsers[0][-11:]
+    y_values = topUsers[2][-11:]
     f = open(r'data\word_counts.json')
     topWords = json.load(f)
 
