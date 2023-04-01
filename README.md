@@ -12,6 +12,7 @@ Please be careful with your data package. It includes all the messages sent on d
 ![Alt Text](examples/displayStats.png)
 ![Alt Text](examples/example.png)
 
+It displays 'nan' for top words if you send alot of images with no words and 'null' in top users for messages sent in a server. This is very easy to fix but im tired
 
 
 Special thanks to:
