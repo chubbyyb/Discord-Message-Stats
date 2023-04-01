@@ -6,7 +6,8 @@ This program uses discords package data
  
 1. Must have python installed
 2. pip install -r requirements.txt
-3. Run messageStats.py
+3. Put your packages folder in the same folder as messageStats.py
+4. Run messageStats.py
 
 Please be careful with your data package. It includes all the messages sent on discord; Do not send it to anyone
 ![Alt Text](examples/displayStats.png)
